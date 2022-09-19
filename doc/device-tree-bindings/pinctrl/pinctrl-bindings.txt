@@ -1,16 +1,16 @@
 == Introduction ==
 
-Hardware modules that control pin multiplexing or configuration parameters
+Hardware modules that control pin multiplexing or configuration parameters    //控制引脚功能和配置参数，例如上拉下拉，三态信号（高低高阻电平信号），驱动能力
 such as pull-up/down, tri-state, drive-strength etc are designated as pin
-controllers. Each pin controller must be represented as a node in device tree,
+controllers. Each pin controller must be represented as a node in device tree,  //每个引脚功能必须存在一个设备树节点，就如其他硬件模块
 just like any other hardware module.
 
 Hardware modules whose signals are affected by pin configuration are
 designated client devices. Again, each client device must be represented as a
 node in device tree, just like any other hardware module.
 
-For a client device to operate correctly, certain pin controllers must
-set up certain specific pin configurations. Some client devices need a
+For a client device to operate correctly, certain pin controllers must        //client device 设备树节点 一个特定的引脚需要特定的配置
+set up certain specific pin configurations. Some client devices need a        //为了正确使用，每一个 client devices 都需要一个设备节点
 single static pin configuration, e.g. set up during initialization. Others
 need to reconfigure pins at run-time, for example to tri-state pins when the
 device is inactive. Hence, each client device can define a set of named
